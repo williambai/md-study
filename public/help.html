@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/markdown.js"></script>
+</head>
+<!-- Help layout -->
+  <body>
+  	<header>
+  		<a href="help.html">帮助首页</a>
+  		<a href="doc.html">文档首页</a>
+  		<a href="new.html">新闻</a>
+  		<a href="about.html">关于我们</a>
+  	</header>
+  	<hr/>
+	<div id="sidebar">
+  		<a href="help.html?page=help1">帮助1</a>
+  		<a href="help.html?page=help2">帮助2</a>
+	</div>
+  	<div id="content"></div>
+  </body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	var search = window.location.search || '';
+	var query = {};
+	if(/^\?/.test(search)){
+		var pairs = search.slice(1).split('&');
+		pairs.forEach(function(pair){
+			var name_value = pair.split('=');
+			query[name_value[0]] = name_value[1];
+		});
+	}else{
+		query.page = 'help';
+	}
+	query.tpl = 'markdown';
+	$.get(query.tpl + '/helps/' + query.page + '.md', function(body,response){
+			var content = markdown.toHTML(body);
+			$('#content').html(content);
+	});
+});
+</script>
+</html>

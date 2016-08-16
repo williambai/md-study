@@ -1,0 +1,9 @@
+{
+  "name": "markdown-study",
+  "description": "study markdown language",
+  "version": "0.0.1",
+  "main": "startup/webServer",
+  "dependencies": {
+    "markdown": "^0.5.0"
+  }
+}
