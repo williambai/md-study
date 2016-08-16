@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "main": "startup/webServer",
   "dependencies": {
+    "ejs": "^2.5.1",
+    "github-markdown-css": "^2.4.0",
     "markdown": "^0.5.0"
   }
 }

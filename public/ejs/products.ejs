@@ -1,0 +1,17 @@
+<h4>所有产品</h4>
+<hr/>
+<ul>
+    <% for(var i=0; i<collection.length; i++) { %>
+        <li>
+            <h4>
+	            <a href='product.html?page=product&id=<%= collection[i]._id %>'>
+	                <%= collection[i].name %>
+	            </a>
+            </h4>
+            <p>
+            <%= collection[i].description %>
+            </p>
+        </li>
+    <% } %>
+</ul>
+<p>第<%= page %>页 共<%= total %>页</p>

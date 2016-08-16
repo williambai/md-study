@@ -11,7 +11,7 @@
 	        padding: 45px;
 	    }
 	</style>
-    <script src="js/markdown.js"></script>
+    <script src="js/ejs.min.js"></script>
 </head>
 <!-- Help layout -->
   <body>
@@ -23,11 +23,6 @@
   		<a href="new.html">新闻</a>
   		<a href="about.html">关于我们</a>
   	</header>
-  	<hr/>
-	<div id="sidebar">
-  		<a href="new.html?page=new1">新闻1</a>
-  		<a href="new.html?page=new2">新闻2</a>
-	</div>
   	<hr/>
   	<article id="content" class="markdown-body">正在加载中...</article>
   </body>
@@ -43,13 +38,27 @@ $(function(){
 			query[name_value[0]] = name_value[1];
 		});
 	}else{
-		query.page = 'new';
+		query.page = 'products';
 	}
-	query.tpl = 'markdown';
-	$.get(query.tpl + '/news/' + query.page + '.md', function(body,response){
-			var content = markdown.toHTML(body);
-			$('#content').html(content);
-	});
+
+	query.tpl = 'ejs';
+	if(query.id){
+		$.get('/api/products/' + query.id, function(body,response){
+			$.get(query.tpl + '/' + query.page + '.ejs', function(tpl){
+				console.log(tpl)
+				var content = ejs.render(tpl, body);
+				$('#content').html(content);
+			});
+		});
+	}else{
+		$.get('/api/products', function(body,response){
+			$.get(query.tpl + '/' + query.page + '.ejs', function(tpl){
+				console.log(tpl)
+				var content = ejs.render(tpl, body);
+				$('#content').html(content);
+			});
+		});
+	}
 });
 </script>
 </html>

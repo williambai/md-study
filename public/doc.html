@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="css/github-markdown.css">
+	<style>
+	    .markdown-body {
+	        box-sizing: border-box;
+	        min-width: 200px;
+	        max-width: 980px;
+	        margin: 0 auto;
+	        padding: 45px;
+	    }
+	</style>
     <script src="js/markdown.js"></script>
 </head>
 <!-- Help layout -->
   <body>
   	<header>
-  		<a href="help.html">帮助首页</a>
-  		<a href="doc.html">文档首页</a>
+  		<a href="index.html">首页</a>
+  		<a href="product.html">产品</a>
+  		<a href="help.html">帮助</a>
+  		<a href="doc.html">文档</a>
   		<a href="new.html">新闻</a>
   		<a href="about.html">关于我们</a>
   	</header>
@@ -16,7 +28,8 @@
   		<a href="doc.html?page=doc1">文档1</a>
   		<a href="doc.html?page=doc2">文档2</a>
 	</div>
-  	<div id="content"></div>
+  	<hr/>
+  	<article id="content" class="markdown-body">正在加载中...</article>
   </body>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
