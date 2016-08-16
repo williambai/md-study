@@ -23,6 +23,18 @@
   		<a href="about.html">关于我们</a>
   	</header>
   	<hr/>
+	<div id="sidebar">
+		<h4>采用 backbone 实现，需要gulp命令将template预嵌入html布局文件中，仅需请求request</h4>
+  		<a href="product.html">方案一：服务端 ejs + json 实现</a>
+	</div>
+  	<hr/>
   	<article id="content" class="markdown-body">正在加载中...</article>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<!-- inject:tpl -->
+  	<!-- endinject -->
   </body>  
+	<script type="text/javascript" src="js/underscore.js"></script>
+	<script type="text/javascript" src="js/backbone.js"></script>
+	<!-- 加载应用 -->
+	<script type="text/javascript" src="js/product.js"></script>
 </html>

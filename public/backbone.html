@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/github-markdown.css">
+	<style>
+	    .markdown-body {
+	        box-sizing: border-box;
+	        min-width: 200px;
+	        max-width: 980px;
+	        margin: 0 auto;
+	        padding: 45px;
+	    }
+	</style>
+    <script src="js/ejs.min.js"></script>
+</head>
+  <body>
+  	<header>
+  		<a href="index.html">首页</a>
+  		<a href="product.html">产品</a>
+  		<a href="help.html">帮助</a>
+  		<a href="doc.html">文档</a>
+  		<a href="new.html">新闻</a>
+  		<a href="about.html">关于我们</a>
+  	</header>
+  	<hr/>
+	<div id="sidebar">
+		<h4>采用 backbone 实现，需要gulp命令将template预嵌入html布局文件中，仅需请求request</h4>
+  		<a href="product.html">方案一：服务端 ejs + json 实现</a>
+	</div>
+  	<hr/>
+  	<article id="content" class="markdown-body">正在加载中...</article>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<!-- inject:tpl -->
+  	<script type="text/template" id="tpl_product">
+	<a href="#products">产品目录</a>
+	<h4>
+	    <%= model.name %>
+	</h4>
+	<p>
+		<%= model.description %>
+	</p>
+</script>
+  	<script type="text/template" id="tpl_product_list">
+	<li>
+	    <h4>
+	        <a href='#products/<%= model._id %>'>
+	            <%= model.name %>
+	        </a>
+	    </h4>
+	    <p>
+	    <%= model.description %>
+	    </p>
+	</li>
+</script>
+
+  	<script type="text/template" id="tpl_products">
+	<h4>所有产品</h4>
+	<hr/>
+	<ul>
+	</ul>
+	<p>第<%= page %>页 共<%= total %>页</p>
+</script>
+
+  	<!-- endinject -->
+  </body>  
+	<script type="text/javascript" src="js/underscore.js"></script>
+	<script type="text/javascript" src="js/backbone.js"></script>
+	<!-- 加载应用 -->
+	<script type="text/javascript" src="js/product.js"></script>
+</html>
